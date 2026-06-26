@@ -1,0 +1,62 @@
+# ============================================================
+# CCDC VPN Heartbeat Skill — 业务站点配置
+# AI 助手通过 SSO 单点登录自动化访问多个业务系统
+# ============================================================
+
+# 单点登录系统
+sso:
+  name: "单点登录系统"
+  username: "13333333332"
+  password: "SFyz#842"
+  urls:
+    - "https://query-test.ccdc.com.cn"
+    - "https://106.38.112.120"
+
+# VPN 心跳参数
+heartbeat:
+  interval_sec: 60    # 心跳间隔（秒）
+  timeout_sec: 10      # 单次请求超时（秒）
+  retry_max: 3         # 故障重试次数
+
+# 业务站点列表
+sites:
+  - name: "银登网"
+    category: "金融交易"
+    username: "ceshi01"
+    password: "Yd2026!#%"
+    urls:
+      - "https://test12.yindeng.com.cn"
+      - "https://124.126.23.210"
+      - "https://124.126.23.210/Home/cn/index.shtml"
+
+  - name: "文件服务上传管理系统"
+    category: "文件管理"
+    username: "ceshi02"
+    password: "WjSc!@#741"
+    urls:
+      - "https://upload3.chinawealth.com.cn"
+      - "https://111.205.95.137"
+
+  - name: "商业银行理财业务信息披露平台"
+    category: "信息披露"
+    username: "dome01"
+    password: "753951!@#sYYh"
+    urls:
+      - "https://client.xinxipilu.test.chinawealth.com.cn"
+      - "https://124.126.23.211"
+
+  - name: "中国理财网"
+    category: "理财服务"
+    username: "18888888888"
+    password: "ZGlcw%1661"
+    urls:
+      - "https://test19.chinawealth.com.cn"
+      - "https://202.108.90.58"
+
+  - name: "单点登录系统"
+    category: "认证网关"
+    username: "13333333332"
+    password: "SFyz#842"
+    urls:
+      - "https://query-test.ccdc.com.cn"
+      - "https://106.38.112.120"
