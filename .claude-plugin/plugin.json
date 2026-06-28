@@ -1,0 +1,14 @@
+{
+  "name": "ccdc-vpn-heartbeat",
+  "version": "1.0.0",
+  "description": "CCDC VPN 心跳 SKILL — AI 加载时自动通过 SSO 认证，建立多业务站点访问会话",
+  "author": "CCDC AI R&D Intern",
+  "repository": "https://github.com/rise197/vpn-heartbeat-skill",
+  "skills": [
+    {
+      "name": "vpn-heartbeat",
+      "path": "skills/vpn-heartbeat",
+      "description": "VPN 心跳与 SSO 单点登录认证 — 启动时自动向单点登录系统发起认证请求，建立各业务站点会话并维持心跳"
+    }
+  ]
+}
