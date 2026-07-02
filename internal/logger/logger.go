@@ -40,6 +40,12 @@ func (l Level) Color() string {
 }
 
 // Logger 分级日志器
+//
+// 日志格式规范：
+//   [2026-06-30 14:30:00.123] INFO  [module-name] message
+//   时间戳精确到毫秒，级别右填充到 5 字符，模块名用方括号包裹
+//
+// 生产环境建议将 level 设为 WARN 以上以减少日志量
 type Logger struct {
 	mu    sync.Mutex
 	name  string
