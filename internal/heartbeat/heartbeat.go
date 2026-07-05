@@ -15,6 +15,9 @@ import (
 )
 
 // Status 心跳状态
+// defaultHealthyThreshold 心跳健康判定阈值 — 2 倍间隔内
+const defaultHealthyThreshold = 2
+
 type Status struct {
 	Running     bool              `json:"running"`
 	StartTime   time.Time         `json:"start_time"`
@@ -102,16 +105,7 @@ func (e *Engine) Healthy() bool {
 		return false
 	}
 	// 最近一次心跳在 2 倍间隔内即为健康
-	return time.Since(e.status.LastSuccess) < time.Duration(e.cfg.IntervalSec*2)*time.Second
-}
-
-// loop 心跳主循环
-func (e *Engine) loop() {
-	ticker := time.NewTicker(time.Duration(e.cfg.IntervalSec) * time.Second)
-	defer ticker.Stop()
-
-	// 随机抖动 ±20% 避免所有实例同时心跳
-	jitter := time.Duration(float64(e.cfg.IntervalSec)*0.2*rand.Float64()) * time.Second
+	return time.Since(e.status.LastSuccess) < time.Duration(e.cfg.IntervalSec*defaultHealthyThreshold)*time.Second
 	time.Sleep(jitter)
 
 	for {
