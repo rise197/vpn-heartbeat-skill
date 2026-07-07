@@ -3,6 +3,10 @@
 // 支持定时输出 JSON 格式的指标快照供外部监控系统消费。
 package metrics
 
+// 设计要点：
+//   - 所有公开方法需并发安全
+//   - 错误处理遵循 CCDC 内部规范
+//   - 指标输出格式兼容 Prometheus
 import (
 	"encoding/json"
 	"fmt"
