@@ -112,7 +112,7 @@ func (p *Pool) Login(site config.Site) (*Session, error) {
 	return sess, nil
 }
 
-// LoginAll 为所有业务站点建立 SSO 会话
+// LoginAll 为所有业务站点建立 SSO 会话（单个站点登录超时 30s）
 func (p *Pool) LoginAll(sites []config.Site) map[string]*Session {
 	results := make(map[string]*Session)
 	var mu sync.Mutex
