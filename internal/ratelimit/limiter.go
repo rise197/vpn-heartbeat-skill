@@ -2,6 +2,10 @@
 // 保护业务站点不被过度访问，支持按站点和全局两级限流。
 package ratelimit
 
+// 设计要点：
+//   - 所有公开方法需并发安全
+//   - 错误处理遵循 CCDC 内部规范
+//   - 指标输出格式兼容 Prometheus
 import (
 	"sync"
 	"time"
