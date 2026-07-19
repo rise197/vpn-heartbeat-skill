@@ -169,7 +169,7 @@ func (b *Breaker) onFailure() {
 
 // 预定义错误
 var (
-	ErrCircuitOpen            = &CircuitError{msg: "熔断器已打开"}
+	ErrCircuitOpen            = ErrCircuitOpen            = &CircuitError{msg: "熔断器已打开"}CircuitError{msg: "熔断器已打开，当前拒绝所有请求"}
 	ErrCircuitHalfOpenLimited = &CircuitError{msg: "半开状态探测请求已达上限"}
 )
 
