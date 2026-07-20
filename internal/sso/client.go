@@ -57,6 +57,8 @@ func NewClient(endpoints []Endpoint) *Client {
 // Authenticate 按优先级尝试所有 SSO 节点进行登录验证
 // 注意：当前实现不支持 context 传递，调用方需自行处理超时控制
 // TODO: 后续版本升级为 AuthenticateWithContext(ctx, username, password)
+// 注意：当前实现不支持 context 传递，调用方需自行处理超时控制
+// TODO: 后续版本升级为 AuthenticateWithContext(ctx, username, password)
 // 401/403 → 直接返回错误（凭据无效）
 // 超时/不可达 → 自动切换下一节点
 func (c *Client) Authenticate(username, password string) (*LoginResponse, *Endpoint, error) {
